@@ -6,5 +6,3 @@ tmp/pids/server.pid
 log/development.log
 
 db/development.sqlite3
-
-Gemfile.lock

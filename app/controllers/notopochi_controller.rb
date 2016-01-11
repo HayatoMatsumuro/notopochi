@@ -7,18 +7,18 @@ class NotopochiController < ApplicationController
 	end
 	
 	def do_login
-		name = params[:user]
+		user_id = params[:user]
 		password = params[:pass]
 		
-		entry = NotoPotiUser.find_by(loginName: name, loginPassword: password)
-		#session[:userId] = entry[ :userId]
+		#entry = DB検索(user_id)
 		
-		if entry.nil? then
-			# メッセージ設定する
-			redirect_to action: :login
-		else
+		#if !found then
+		#	redirect_to action: :login
+		#elsif entry.password != password then
+		#	redirect_to action: :login
+		#else
 			redirect_to action: :departure
-		end
+		#end
 	end
 	
 	def departure
@@ -35,12 +35,9 @@ class NotopochiController < ApplicationController
 	end
 	
 	def depart
-		PotiData
-		redirect_to action: :traveling
 	end
 	
 	def traveling
-		
 	end
 	
 	def getoff
