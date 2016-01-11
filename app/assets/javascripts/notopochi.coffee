@@ -65,5 +65,5 @@ initialize2 = ->
   return
 
 $ ->
-  $("div#map_canvas").click ->
+  $("div#map_canvas").dblclick ->
     initialize2()
