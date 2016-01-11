@@ -7,18 +7,18 @@ class NotopochiController < ApplicationController
 	end
 	
 	def do_login
-		user_id = params[:user]
+		name = params[:user]
 		password = params[:pass]
 		
-		#entry = DB検索(user_id)
+		entry = NotoPotiUser.find_by(loginName: name, loginPassword: password)
+		session[:userId] = entry[ :userId]
 		
-		#if !found then
-		#	redirect_to action: :login
-		#elsif entry.password != password then
-		#	redirect_to action: :login
-		#else
+		if entry.nil? then
+			# メッセージ設定する
+			redirect_to action: :login
+		else
 			redirect_to action: :departure
-		#end
+		end
 	end
 	
 	def departure
@@ -29,23 +29,31 @@ class NotopochiController < ApplicationController
 		#@departurePoints = ["金沢駅(ダミーデータ)", "香林坊(ダミーデータ)"]
 		#@departurePoints = [ { :id => "1", :name => "金沢駅(ダミーデータ)" },
 		#	{ :id => "2", :name => "香林坊(ダミーデータ)" } ]
-		@departurePoints = { "金沢駅(ダミーデータ)"  => 1,
-			"香林坊(ダミーデータ)" => 2 }
+		@departurePoints = { "金沢駅"  => 1,
+			"近江町いちば館" => 2,
+			"金沢21世紀美術館" => 3,
+			"兼六園" => 4 }
 		#CSV.foreach(departureFile) do |row|
 		#	@departurePoints.push(row[9])
 		#end
 	end
 	
 	def depart
+		#startName = params[
+		NotoPotiDatum.create(UserID: session[ :userId])
+		redirect_to action: :traveling
 	end
 	
 	def traveling
+		
 	end
 	
 	def getoff
+		redirect_to action: traveling
 	end
 	
 	def arrive
+		redirect_to action: arrived
 	end
 	
 	def arrived
