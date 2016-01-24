@@ -11,19 +11,22 @@ class NotopochiController < ApplicationController
 		password = params[:pass]
 		
 		entry = NotoPotiUser.find_by(loginname: name, loginpassword: password)
-		session[:userId] = entry.userid
 		
 		if entry.nil? then
 			# メッセージ設定する
 			redirect_to action: :login
 		else
+			session[:userId] = entry.userid
 			redirect_to action: :departure
 		end
 	end
 	
 	def departure
+		entry = NotoPotiUser.find_by(userid: session[:userId])
+		if !entry.nil?
+			@userName = entry.name
+		end
 		
-		#@userName = 
 		#departureUrl = DB検索(出発地点のURL)
 		#getAndSave(departureUrl, departureFile)
 		
@@ -43,6 +46,10 @@ class NotopochiController < ApplicationController
 	end
 	
 	def traveling
+		entry = NotoPotiUser.find_by(userid: session[:userId])
+		if !entry.nil?
+			@userName = entry.name
+		end
 		
 	end
 	
@@ -51,10 +58,17 @@ class NotopochiController < ApplicationController
 	end
 	
 	def arrive
+		
+		
 		redirect_to action: :arrived
 	end
 	
 	def arrived
+		entry = NotoPotiUser.find_by(userid: session[:userId])
+		if !entry.nil?
+			@userName = entry.name
+		end
+		
 		@arrivedPoints = [ 
 			[ 36.578055, 136.648654 ],
 			[ 36.678055, 136.748654 ]
