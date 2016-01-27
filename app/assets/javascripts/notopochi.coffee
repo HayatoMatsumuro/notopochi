@@ -44,7 +44,11 @@ initialize = ->
 #      icon: icon
 #      shadow: shadow
     marker = new google.maps.Marker(mopts)
-    contentString="<dl ><dt>"+arrivedNames[i]+"</dt><dd>到着時刻:"+arrivedTimes[i][0]+"時"+("0"+arrivedTimes[i][1]).substr(-2)+"分<p>"+arrivedComments[i]+"</dd></dl>"
+    if i is 0
+      contentStringTimes="出発時刻:"+arrivedTimes[i][0]+"時"+("0"+arrivedTimes[i][1]).substr(-2)+"分"
+    else
+      contentStringTimes="到着時刻:"+arrivedTimes[i][0]+"時"+("0"+arrivedTimes[i][1]).substr(-2)+"分"
+    contentString="<dl ><dt>"+arrivedNames[i]+"</dt><dd>"+contentStringTimes+"</dd><dd>"+arrivedComments[i]+"</dd></dl>"
     addListenerPoint map, marker, contentString
     
     # もらった地図の緯度・経度取得
