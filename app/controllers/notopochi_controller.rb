@@ -41,7 +41,8 @@ class NotopochiController < ApplicationController
 	
 	def depart
 		#startName = params[
-		session[:notoPotiDatum] = NotoPotiDatum.create(userid: session[ :userId])
+		notoPotiDatum = NotoPotiDatum.create(userid: session[ :userId])
+		session[:potiDataId] = notoPotiDatum.potidataid
 		session[:seqNum] = 0
 		redirect_to action: :traveling
 	end
@@ -62,10 +63,8 @@ class NotopochiController < ApplicationController
 		latitude = params[:lati]
 		longitude = params[:logi]
 		
-		#NotoPotiDatum.update
-		datum = session[:notoPotiDatum]
 		session[:seqNum] += 1
-		NotoPotiDatumDetail.create(potidataid: datum.potidataid, podataseqnum: session[:seqNum], endposition: latitude + "," + longitude)
+		NotoPotiDatumDetail.create(potidataid: session[:potiDataId], potidataseqnum: session[:seqNum], endposition: "")#latitude + "," + longitude)
 		
 		redirect_to action: :arrived
 	end
@@ -78,19 +77,27 @@ class NotopochiController < ApplicationController
 		
 		@arrivedPoints = [ 
 			[ 36.578055, 136.648654 ],
-			[ 36.678055, 136.748654 ]
+			[ 36.678055, 136.748654 ],
+			[ 37.396464, 136.901609 ],
+			[ 37.515365, 137.343260 ]
 		]
 		@arrivedNames = [ 
-			"金沢駅" ,
-			""
+			"金沢駅",
+			"",
+			"輪島の朝市",
+			"ランプの宿"
 		]
 		@arrivedComments = [ 
-			"金沢の駅です" ,
-			""
+			"金沢の駅です",
+			"" ,
+			"バスで到着",
+			"タクシーで到着"
 		]
 		@arrivedTimes = [ 
 			[ 11,3 ],
-			[ 12, 12 ]
+			[ 12, 12 ], 
+			[ 15, 30 ],
+			[ 18, 0 ]
 		]
 	end
 end
