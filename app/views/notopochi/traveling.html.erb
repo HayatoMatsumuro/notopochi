@@ -21,6 +21,7 @@
 		<br>
 		旅行中の要所に着いたら利用した移動手段のボタンを選んで押してください
 	</div>
+	<div id="div_getoff_info"></div>
 	<%= form_tag( { controller: :notopochi, action: :getoff}, id: :formtravelinggetoff, class: :getoff, method: :post) do %>
 		<input type="hidden" id="hidden_getoff_time" name="time" value="" />
 		<input type="hidden" id="hidden_getoff_latitude" name="latitude" value="" />
@@ -34,6 +35,7 @@
 	<br>
 	<br>
 	<div id="descriptionBox">旅行の最終目的地に着いたら、「目的地に着いた」を押してください。</div>
+	<div id="div_arrive_info"></div>
 	<div id="div_btn_arrive">
 	<%= form_tag( { controller: :notopochi, action: :arrive}, id: :formtravelingarrive, class: :arrive, method: :post) do %>
 		<input type="hidden" id="hidden_arrive_time" name="time" value="" />
