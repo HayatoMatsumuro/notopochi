@@ -3,6 +3,7 @@ $(document).ready( function(){
 	// 着いたボタンを押したとき
 	// 徒歩
 	$( "#btn_getoff_walk" ).click(function(){
+		$( "#div_getoff_info" ).text("情報を記録中です。");
 		navigator.geolocation.getCurrentPosition(
 			function(position){
 
@@ -23,6 +24,7 @@ $(document).ready( function(){
 
 	// バス
 	$( "#btn_getoff_bus" ).click(function(){
+		$( "#div_getoff_info" ).text("情報を記録中です。");
 		navigator.geolocation.getCurrentPosition(
 			function(position){
 
@@ -44,6 +46,7 @@ $(document).ready( function(){
 
 	// 電車
 	$( "#btn_getoff_train" ).click(function(){
+		$( "#div_getoff_info" ).text("情報を記録中です。");
 		navigator.geolocation.getCurrentPosition(
 			function(position){
 
@@ -64,6 +67,7 @@ $(document).ready( function(){
 
 	// タクシー
 	$( "#btn_getoff_taxi" ).click(function(){
+		$( "#div_getoff_info" ).text("情報を記録中です。");
 		navigator.geolocation.getCurrentPosition(
 			function(position){
 
@@ -84,6 +88,7 @@ $(document).ready( function(){
 
 	// 目的地到着ボタンを押したとき
 	$( "#btn_arrive" ).click(function(){
+		$( "#div_arrive_info" ).text("情報を記録中です。");
 		navigator.geolocation.getCurrentPosition(
 			function(position){
 

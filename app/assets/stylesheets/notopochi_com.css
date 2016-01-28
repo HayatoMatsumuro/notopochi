@@ -97,4 +97,14 @@ button#btn_arrive{
 	width:100%;
 }
 
+div#div_getoff_info{
+	color: #ff0000;
+	font-weight:bold;
+	text-align: center;
+}
 
+div#div_arrive_info{
+	color: #ff0000;
+	font-weight:bold;
+	text-align: center;
+}
