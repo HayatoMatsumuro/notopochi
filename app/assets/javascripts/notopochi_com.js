@@ -1,5 +1,10 @@
 $(document).ready( function(){
 
+	// のとぽちとは
+	$( "#btn_notopochi" ).click(function(){
+		$("#div_notopochi_description").css("display", "block");
+	});
+
 	// 着いたボタンを押したとき
 	// 徒歩
 	$( "#btn_getoff_walk" ).click(function(){

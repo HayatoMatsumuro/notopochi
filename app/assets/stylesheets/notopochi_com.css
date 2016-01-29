@@ -108,3 +108,16 @@ div#div_arrive_info{
 	font-weight:bold;
 	text-align: center;
 }
+
+div#div_notopochi_description{
+	margin-left:60px;
+	margin-right:60px;
+	margin-bottom:20px;
+	margin-top:40px;
+	padding:10px;
+	background-color: #998676;
+	border:1px solid black;
+	border-color: #696969;
+	color: #FFFFFF;
+	display:none;
+}
