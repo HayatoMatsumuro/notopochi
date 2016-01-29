@@ -11,19 +11,22 @@ class NotopochiController < ApplicationController
 		password = params[:pass]
 		
 		entry = NotoPotiUser.find_by(loginname: name, loginpassword: password)
-		session[:userId] = entry.userid
 		
 		if entry.nil? then
 			# メッセージ設定する
 			redirect_to action: :login
 		else
+			session[:userId] = entry.userid
 			redirect_to action: :departure
 		end
 	end
 	
 	def departure
+		entry = NotoPotiUser.find_by(userid: session[:userId])
+		if !entry.nil?
+			@userName = entry.name
+		end
 		
-		#@userName = 
 		#departureUrl = DB検索(出発地点のURL)
 		#getAndSave(departureUrl, departureFile)
 		
@@ -38,11 +41,17 @@ class NotopochiController < ApplicationController
 	
 	def depart
 		#startName = params[
-		NotoPotiDatum.create(userid: session[ :userId])
+		notoPotiDatum = NotoPotiDatum.create(userid: session[ :userId])
+		session[:potiDataId] = notoPotiDatum.potidataid
+		session[:seqNum] = 0
 		redirect_to action: :traveling
 	end
 	
 	def traveling
+		entry = NotoPotiUser.find_by(userid: session[:userId])
+		if !entry.nil?
+			@userName = entry.name
+		end
 		
 	end
 	
@@ -51,25 +60,44 @@ class NotopochiController < ApplicationController
 	end
 	
 	def arrive
+		latitude = params[:lati]
+		longitude = params[:logi]
+		
+		session[:seqNum] += 1
+		NotoPotiDatumDetail.create(potidataid: session[:potiDataId], potidataseqnum: session[:seqNum], endposition: "")#latitude + "," + longitude)
+		
 		redirect_to action: :arrived
 	end
 	
 	def arrived
+		entry = NotoPotiUser.find_by(userid: session[:userId])
+		if !entry.nil?
+			@userName = entry.name
+		end
+		
 		@arrivedPoints = [ 
 			[ 36.578055, 136.648654 ],
-			[ 36.678055, 136.748654 ]
+			[ 36.678055, 136.748654 ],
+			[ 37.396464, 136.901609 ],
+			[ 37.515365, 137.343260 ]
 		]
 		@arrivedNames = [ 
-			"金沢駅" ,
-			""
+			"金沢駅",
+			"",
+			"輪島の朝市",
+			"ランプの宿"
 		]
 		@arrivedComments = [ 
-			"金沢の駅です" ,
-			""
+			"金沢の駅です",
+			"" ,
+			"バスで到着",
+			"タクシーで到着"
 		]
 		@arrivedTimes = [ 
 			[ 11,3 ],
-			[ 12, 12 ]
+			[ 12, 12 ], 
+			[ 15, 30 ],
+			[ 18, 0 ]
 		]
 	end
 end
