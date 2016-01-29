@@ -1,0 +1,123 @@
+div#div_back
+{
+	font-family: "ヒラギノ丸ゴ ProN","Hiragino Maru Gothic ProN","メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+	margin:10px;
+	padding:10px;
+	border:2px solid;
+	border-color: #696969;
+}
+
+div#div_logout
+{
+	text-align: right;
+	margin-bottom:10px;
+}
+
+button#btn_logout{
+	color: #5C4033;
+}
+
+div#div_img_notopochi
+{
+	text-align: center;
+	margin-bottom:5px;
+}
+
+div#descriptionBox{
+	margin-left:50px;
+	margin-right:50px;
+	margin-bottom:20px;
+	padding:10px;
+	background-color: #FFFFFF;
+	border:1px solid black;
+	border-color: #696969;
+	color: #5C4033;
+	
+}
+
+div#div_img_notobus
+{
+	text-align: center;
+	margin-bottom:5px;
+}
+
+div#div_textBoxTitle{
+	color: #5C4033;
+	margin-left:60px;
+	margin-right:60px;
+}
+
+div#div_textBox{
+	margin-left:60px;
+	margin-right:60px;
+	margin-bottom:10px;
+}
+
+div#div_btn_getoff{
+	margin-top:20px;
+	margin-left:60px;
+	margin-right:60px;
+	margin-bottom:10px;
+}
+
+div#div_btn_next{
+	margin-top:20px;
+	margin-left:60px;
+	margin-right:60px;
+	margin-bottom:10px;
+}
+
+button#btn_next{
+	color: #8B0000;
+	width:100%;
+}
+
+div#div_btn_notopochi{
+	margin-top:30px;
+	margin-left:60px;
+	margin-right:60px;
+	margin-bottom:10px;
+}
+
+button#btn_notopochi{
+	background-color: #998676;
+	color: #FFFFFF;
+	width:100%;
+}
+
+div#div_btn_arrive{
+	margin-top:20px;
+	margin-left:60px;
+	margin-right:60px;
+	margin-bottom:10px;
+}
+
+button#btn_arrive{
+	color: #8B0000;
+	width:100%;
+}
+
+div#div_getoff_info{
+	color: #ff0000;
+	font-weight:bold;
+	text-align: center;
+}
+
+div#div_arrive_info{
+	color: #ff0000;
+	font-weight:bold;
+	text-align: center;
+}
+
+div#div_notopochi_description{
+	margin-left:60px;
+	margin-right:60px;
+	margin-bottom:20px;
+	margin-top:40px;
+	padding:10px;
+	background-color: #998676;
+	border:1px solid black;
+	border-color: #696969;
+	color: #FFFFFF;
+	display:none;
+}

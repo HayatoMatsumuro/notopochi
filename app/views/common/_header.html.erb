@@ -1,0 +1,8 @@
+<% url_logout = 'http://localhost:3000/notopochi/' # TODO:暫定値 ログアウトボタン  %>
+
+<header data-role="header">
+	<h3 id="title">のとぽち</h3>
+	<%= form_tag( { controller: :notopochi, action: :login}, id: :loginout, class: :'ui-btn-right', method: :get) do %>
+		<%= submit_tag 'ログアウト' %>
+	<% end %>
+</header>

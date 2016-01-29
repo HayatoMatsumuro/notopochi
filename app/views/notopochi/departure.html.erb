@@ -1,0 +1,32 @@
+<body style="background-image: url(<%= asset_path 'back.jpg' %>);">
+<div id="div_back">
+	<div id="div_logout">
+		<%= form_tag( { controller: :notopochi, action: :login}, id: :loginout, method: :get) do %>
+			<%= button_tag( 'ログアウト', id: :'btn_logout', type: :'submit') %>
+		<% end %>
+	</div>
+	<div id="div_img_notopochi">
+		<%= image_tag('notopochi.png', id: "img_notopochi") %>
+	</div>
+	<div id="div_img_notobus">
+		<%= image_tag('notobus.png', id: "img_notobus") %>
+	</div>
+	<div id="descriptionBox">
+		こんにちは！<br>
+		<% if @userName == "" %>
+		<b>ゲスト</b> さん<br>
+		<% else %>
+		<b><%= @userName %></b> さん<br>
+		<% end %>
+		<br>
+		出発地を選択し、「開始する」を押してください<br>
+		旅の記録がスタートします！
+	</div>
+	<br>
+	<%= form_tag( { controller: :notopochi, action: :depart},  id: :formdepart, class: :depart, method: :post) do %>
+		<div id="div_textBoxTitle">出発地</div>
+		<div id="div_textBox"><%= select :formdeparture, :name, @departurePoints %></div>
+		<div id="div_btn_next"><%= button_tag('開始する', id: :'btn_next', type: :'submit') %></div>
+	<% end %>
+</div>
+</body>
