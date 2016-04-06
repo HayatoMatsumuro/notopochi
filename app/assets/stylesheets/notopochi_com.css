@@ -3,8 +3,6 @@ div#div_back
 	font-family: "ヒラギノ丸ゴ ProN","Hiragino Maru Gothic ProN","メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
 	margin:10px;
 	padding:10px;
-	border:2px solid;
-	border-color: #696969;
 }
 
 div#div_logout
@@ -32,7 +30,7 @@ div#descriptionBox{
 	border:1px solid black;
 	border-color: #696969;
 	color: #5C4033;
-	
+
 }
 
 div#div_img_notobus
