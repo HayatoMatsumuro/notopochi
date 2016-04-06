@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     post ':notopochi/arrive', to:'notopochi#arrive'
     get ':notopochi/arrived', to:'notopochi#arrived'
     get ':notopochi/new', to:'notopochi#new'
+    post ':notopochi/do_new', to:'notopochi#do_new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

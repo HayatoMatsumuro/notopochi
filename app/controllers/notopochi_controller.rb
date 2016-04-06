@@ -102,4 +102,7 @@ class NotopochiController < ApplicationController
 	end
 	def new
 	end
+	def do_new
+		redirect_to action: :new
+	end
 end
